@@ -11,6 +11,7 @@
 @protocol ASProgressPopUpViewDataSource;
 
 @interface ASProgressPopUpView : UIView
+@property (assign) BOOL rounded;
 
 - (void)showPopUpViewAnimated:(BOOL)animated;
 - (void)hidePopUpViewAnimated:(BOOL)animated;

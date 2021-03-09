@@ -181,6 +181,7 @@
 
     self.textColor = [UIColor whiteColor];
     self.font = [UIFont boldSystemFontOfSize:20.0f];
+    self.rounded = NO;
 }
 
 // ensure animation restarts if app is closed then becomes active again
@@ -257,6 +258,7 @@
 {
     _gradientLayer.frame = self.bounds;
     _progressLayer.frame = CGRectMake(0, 0, self.bounds.size.width * self.progress, self.bounds.size.height);
+    [self updateCornnerRaduusLayout];
 }
 
 
@@ -326,5 +328,17 @@
     _gradientLayer.colors = cgColors;
     _gradientLayer.locations = positions;
 }
-
+-(void)rounded:(BOOL)rounded  {
+    _rounded = rounded;
+    [self updateCornnerRaduusLayout];
+}
+- (void)updateCornnerRaduusLayout{
+    if (self.rounded){
+    self.layer.cornerRadius=(self.frame.size.height/2);
+    _progressLayer.cornerRadius=(_progressLayer.frame.size.height/2);
+    }else{
+    self.layer.cornerRadius=0;
+    _progressLayer.cornerRadius=0;
+    }
+}
 @end
