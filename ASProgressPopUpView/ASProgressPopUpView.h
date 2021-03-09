@@ -11,7 +11,6 @@
 @protocol ASProgressPopUpViewDataSource;
 
 @interface ASProgressPopUpView : UIView
-@property (assign) BOOL rounded;
 
 - (void)showPopUpViewAnimated:(BOOL)animated;
 - (void)hidePopUpViewAnimated:(BOOL)animated;
@@ -21,7 +20,8 @@
 @property(strong, nonatomic) UIColor* trackTintColor;
 
 - (void)setProgress:(float)progress animated:(BOOL)animated;
-
+- (BOOL)rounded;
+- (void)setRounded:(BOOL)rounded;
 @property (strong, nonatomic) UIColor *textColor;
 
 // font can not be nil, it must be a valid UIFont

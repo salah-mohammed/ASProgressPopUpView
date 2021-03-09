@@ -21,6 +21,8 @@
     BOOL _shouldAnimate;
     CALayer *_progressLayer;
     CAGradientLayer *_gradientLayer;
+    BOOL rounded;
+
 }
 
 #pragma mark - initialization
@@ -328,8 +330,13 @@
     _gradientLayer.colors = cgColors;
     _gradientLayer.locations = positions;
 }
--(void)rounded:(BOOL)rounded  {
-    _rounded = rounded;
+- (BOOL)rounded
+{
+    return rounded;
+}
+- (void)setRounded:(BOOL)rounded
+{
+    rounded = rounded;
     [self updateCornnerRaduusLayout];
 }
 - (void)updateCornnerRaduusLayout{
