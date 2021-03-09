@@ -21,7 +21,7 @@
     BOOL _shouldAnimate;
     CALayer *_progressLayer;
     CAGradientLayer *_gradientLayer;
-    BOOL rounded;
+    BOOL roundedEnable;
 
 }
 
@@ -183,7 +183,7 @@
 
     self.textColor = [UIColor whiteColor];
     self.font = [UIFont boldSystemFontOfSize:20.0f];
-    self.rounded = NO;
+    roundedEnable = NO;
 }
 
 // ensure animation restarts if app is closed then becomes active again
@@ -332,15 +332,15 @@
 }
 - (BOOL)rounded
 {
-    return rounded;
+    return roundedEnable;
 }
 - (void)setRounded:(BOOL)rounded
 {
-    rounded = rounded;
+    roundedEnable = rounded;
     [self updateCornnerRaduusLayout];
 }
 - (void)updateCornnerRaduusLayout{
-    if (self.rounded){
+    if (roundedEnable){
     self.layer.cornerRadius=(self.frame.size.height/2);
     _progressLayer.cornerRadius=(_progressLayer.frame.size.height/2);
     }else{
